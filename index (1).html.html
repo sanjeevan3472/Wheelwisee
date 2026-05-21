@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer" /> <title>Wheelwise - Find Your Perfect Car Match</title>
+  <meta name="description" content="Wheelwise is a premium interactive car matchmaker website.">
+  <link rel="stylesheet" href="style5.css">
+</head>
+<body>
+
+  <header>
+    <div class="container nav-container">
+      <div class="logo-wrapper" id="logo-wrapper">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 16H11v-2h2v2zm0-4h-2V7h2v7zm4.24-5.76l-1.42 1.42c-.37-.37-.87-.66-1.42-.82V5h2c.31.25.62.53.84.84z"/></svg>
+        </div>
+        <div class="logo-text">Wheel<span>wise</span></div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#" class="active" data-target="home" id="nav-link-home">Home</a></li>
+          <li><a href="#" data-target="quiz" id="nav-link-matchmaker">Matchmaker</a></li>
+          <li><a href="#" data-target="showroom" id="nav-link-showroom">Showroom Catalog</a></li>
+        </ul>
+      </nav>
+      <button class="nav-cta" id="start-quiz-nav">Start Matchmaker</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="home-section" class="hero">
+      <div class="container">
+        <div class="hero-tag">⚡ AI-Powered Vehicle Matchmaker</div>
+        <h1>Find The Drive That<br><span class="gradient-text-accent">Matches Your Soul</span></h1>
+        <p>Skip the endless spec sheets. Wheelwise analyzes your budget, lifestyle, and driving style to discover your absolute perfect automotive companion.</p>
+        <button class="btn-primary" id="start-quiz-btn">Launch Matchmaker Quiz</button>
+      </div>
+    </section>
+
+    <section id="quiz-section" class="matchmaker-wrapper">
+      <div class="container">
+        <div class="glass-panel quiz-container">
+          <div class="quiz-header">
+            <div class="quiz-title">Preference Matchmaker</div>
+            <div style="display:flex; align-items:center; gap:12px;">
+              <span id="progress-text" style="font-size:12px; color:var(--text-secondary);">Step 1 of 5</span>
+              <div class="progress-track"><div class="progress-bar" id="progress-bar" style="width: 20%;"></div></div>
+            </div>
+          </div>
+
+          <div class="quiz-step active" id="step-1">
+            <h2 class="question-text">Select your target purchasing budget</h2>
+            <div class="budget-slider-wrapper">
+              <div class="budget-values"><span>Budget Limit</span><span id="budget-value-text">₹65,00,000</span></div>
+              <input type="range" class="range-slider" id="budget-slider" min="1500000" max="20000000" step="500000" value="6500000">
+              <div class="budget-labels" style="margin-top: 12px;">
+                <span>₹15 Lakhs</span>
+                <span>₹2 Crores+</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="quiz-step" id="step-2">
+            <h2 class="question-text">Desired vehicle body style?</h2>
+            <div class="options-grid">
+              <div class="option-card" data-step-name="type" data-value="suv"><div class="option-title">SUV / Crossover</div></div>
+              <div class="option-card" data-step-name="type" data-value="sedan"><div class="option-title">Sedan</div></div>
+              <div class="option-card" data-step-name="type" data-value="hatchback"><div class="option-title">Hatchback</div></div>
+              <div class="option-card" data-step-name="type" data-value="sports"><div class="option-title">Sports Car</div></div>
+            </div>
+          </div>
+
+          <div class="quiz-step" id="step-3">
+            <h2 class="question-text">Primary use case?</h2>
+            <div class="options-grid">
+              <div class="option-card" data-step-name="lifestyle" data-value="commute"><div class="option-title">City Commuting</div></div>
+              <div class="option-card" data-step-name="lifestyle" data-value="family"><div class="option-title">Family Transport</div></div>
+              <div class="option-card" data-step-name="lifestyle" data-value="adventure"><div class="option-title">Rugged Adventure</div></div>
+              <div class="option-card" data-step-name="lifestyle" data-value="speed"><div class="option-title">Speed & Track</div></div>
+            </div>
+          </div>
+
+          <div class="quiz-step" id="step-4">
+            <h2 class="question-text">Preferred engine/fuel?</h2>
+            <div class="options-grid">
+              <div class="option-card" data-step-name="fuel" data-value="gasoline"><div class="option-title">Gasoline</div></div>
+              <div class="option-card" data-step-name="fuel" data-value="hybrid"><div class="option-title">Hybrid Synergy</div></div>
+              <div class="option-card" data-step-name="fuel" data-value="electric"><div class="option-title">Electric (EV)</div></div>
+            </div>
+          </div>
+
+          <div class="quiz-step" id="step-5">
+            <h2 class="question-text">What feature do you prioritize?</h2>
+            <div class="options-grid">
+              <div class="option-card" data-step-name="priority" data-value="economy"><div class="option-title">Fuel Economy</div></div>
+              <div class="option-card" data-step-name="priority" data-value="luxury"><div class="option-title">Luxury & Comfort</div></div>
+              <div class="option-card" data-step-name="priority" data-value="tech"><div class="option-title">Core Technology</div></div>
+              <div class="option-card" data-step-name="priority" data-value="performance"><div class="option-title">Raw Performance</div></div>
+            </div>
+          </div>
+
+          <div class="quiz-controls">
+            <button class="btn-secondary" id="prev-step-btn" style="display:none;">Back</button>
+            <button class="btn-primary" id="next-step-btn" style="margin-left:auto;">Next Step</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="results-section" class="results-wrapper">
+      <div class="container">
+        <div class="results-header">
+          <h2>Your Perfect Match Results</h2>
+          <p>We crunched the numbers. Here are your top 3 perfect fits.</p>
+        </div>
+        <div class="results-grid" id="results-grid"></div>
+        <div class="results-actions">
+          <button class="btn-secondary" id="redo-quiz-btn">Retake Quiz</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="showroom-section" class="showroom-section">
+      <div class="container">
+        <div class="section-header"><h2>Explore Full Showroom</h2></div>
+        
+        <div class="filter-bar">
+          <div class="filter-group">
+            <label>Brand</label>
+            <select class="filter-select" id="brand-filter">
+              <option value="all">All Brands</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label>Body Style</label>
+            <select class="filter-select" id="type-filter">
+              <option value="all">All Styles</option>
+              <option value="sedan">Sedan</option>
+              <option value="suv">SUV</option>
+              <option value="hatchback">Hatchback</option>
+              <option value="sports">Sports Car</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label>Pricing Bracket (INR)</label>
+            <select class="filter-select" id="price-filter">
+              <option value="all">All Prices</option>
+              <option value="budget">Under ₹30 Lakhs</option>
+              <option value="mid">₹30 Lakhs - ₹60 Lakhs</option>
+              <option value="premium">₹60 Lakhs - ₹1 Crore</option>
+              <option value="luxury">Above ₹1 Crore</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="results-grid" id="showroom-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Wheelwise Automotive Solutions India. Designed with premium glassmorphism.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      
+      // --- 1. FULL EXPANDED DATABASE (INDIAN PRICING + STABLE IMAGES) ---
+      const CARS_DATABASE = [
+        // TOYOTA
+        { id: "t1", name: "Toyota Corolla Hybrid", brand: "Toyota", price: 2350000, type: "sedan", fuel: "hybrid", lifestyle: "commute", priority: "economy", specs: { range: "23 km/l", acceleration: "9.0s", horsepower: "138 hp", safety: "5-Star", seats: 5, cargo: "370 L" }, description: "The benchmark of reliable, ultra-efficient daily commuting.", image: "https://images.unsplash.com/photo-1626072557464-90403d788e8d?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+        { id: "t2", name: "Toyota RAV4 Hybrid", brand: "Toyota", price: 3500000, type: "suv", fuel: "hybrid", lifestyle: "family", priority: "economy", specs: { range: "18 km/l", acceleration: "7.3s", horsepower: "219 hp", safety: "5-Star", seats: 5, cargo: "1064 L" }, description: "A family crossover staple blending passenger space with hybrid economy.", image: "https://autotorque.in/wp-content/uploads/2026/05/2026-toyota-rav4-limited-132-68f0e7ee10471.webp" },
+        { id: "t3", name: "Toyota GR Supra", brand: "Toyota", price: 8500000, type: "sports", fuel: "gasoline", lifestyle: "speed", priority: "performance", specs: { range: "10 km/l", acceleration: "3.9s", horsepower: "382 hp", safety: "N/A", seats: 2, cargo: "290 L" }, description: "A legendary sports coupe co-developed with BMW for pure driving joy.", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlHcIEx5fuviZrvGkoh5Qyn-QKOtfQdvnFdQ&s" },
+        
+        // HONDA
+        { id: "h1", name: "Honda Civic Hatchback", brand: "Honda", price: 2200000, type: "hatchback", fuel: "gasoline", lifestyle: "commute", priority: "economy", specs: { range: "16 km/l", acceleration: "7.7s", horsepower: "158 hp", safety: "5-Star Rating", seats: 5, cargo: "693 L" }, description: "Sporty, versatile, and highly practical compact car.", image: "https://images.unsplash.com/photo-1666490860294-04b6eb7b5b26?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+        { id: "h2", name: "Honda CR-V Hybrid", brand: "Honda", price: 3200000, type: "suv", fuel: "hybrid", lifestyle: "family", priority: "tech", specs: { range: "17 km/l", acceleration: "7.9s", horsepower: "204 hp", safety: "Top Safety Pick+", seats: 5, cargo: "1112 L" }, description: "Incredibly spacious, tech-forward, and fuel-sipping family hauler.", image:"https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=800&auto=format&fit=crop" },
+        { id: "h3", name: "Honda Accord Hybrid", brand: "Honda", price: 3400000, type: "sedan", fuel: "hybrid", lifestyle: "commute", priority: "luxury", specs: { range: "19 km/l", acceleration: "6.6s", horsepower: "204 hp", safety: "Top Safety Pick+", seats: 5, cargo: "473 L" }, description: "A sleek, refined midsize sedan offering near-luxury comfort and great MPG.", image: "https://images.unsplash.com/photo-1634737581963-5a22ba471961?q=80&w=1243&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+
+        // TESLA
+        { id: "ts1", name: "Tesla Model 3", brand: "Tesla", price: 4500000, type: "sedan", fuel: "electric", lifestyle: "commute", priority: "tech", specs: { range: "548 km", acceleration: "4.2s", horsepower: "340 hp", safety: "5-Star Perfect", seats: 5, cargo: "594 L" }, description: "The global benchmark in modern electric vehicles.", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwO_dgs760vP2hDVV7bwRa7U69_64JqhgReQ&s" },
+        { id: "ts2", name: "Tesla Model Y", brand: "Tesla", price: 5000000, type: "suv", fuel: "electric", lifestyle: "family", priority: "tech", specs: { range: "498 km", acceleration: "4.8s", horsepower: "384 hp", safety: "5-Star Perfect", seats: 5, cargo: "2158 L" }, description: "The world's best-selling car; an electric crossover with massive space.", image: "https://images.unsplash.com/photo-1643537173969-e4e0de07162b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+        { id: "ts3", name: "Tesla Model S Plaid", brand: "Tesla", price: 15000000, type: "sedan", fuel: "electric", lifestyle: "speed", priority: "performance", specs: { range: "577 km", acceleration: "1.99s", horsepower: "1020 hp", safety: "5-Star", seats: 5, cargo: "708 L" }, description: "The fastest accelerating production sedan on Earth.", image: "https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&w=800&auto=format&fit=crop" },
+
+        // PORSCHE
+        { id: "p1", name: "Porsche 911 Carrera", brand: "Porsche", price: 19000000, type: "sports", fuel: "gasoline", lifestyle: "speed", priority: "performance", specs: { range: "8 km/l", acceleration: "3.8s", horsepower: "379 hp", safety: "Elite", seats: 4, cargo: "130 L" }, description: "The legendary gold standard of sports cars.", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6oQ3IwL8BEVOQ70vL-TVIaAeXgKeBYGaPWA&s" },
+        { id: "p2", name: "Porsche Macan S", brand: "Porsche", price: 8800000, type: "suv", fuel: "gasoline", lifestyle: "speed", priority: "performance", specs: { range: "9 km/l", acceleration: "4.4s", horsepower: "375 hp", safety: "5-Star", seats: 5, cargo: "487 L" }, description: "The handling benchmark for sport utility vehicles.", image: "https://res.cloudinary.com/unix-center/image/upload/c_limit,dpr_3.0,f_auto,fl_progressive,g_center,h_240,q_auto:good,w_385/lgmrqoqbrtrxovayjjqa.jpg" },
+        { id: "p3", name: "Porsche Taycan 4S", brand: "Porsche", price: 16000000, type: "sedan", fuel: "electric", lifestyle: "eco", priority: "luxury", specs: { range: "378 km", acceleration: "3.8s", horsepower: "522 hp", safety: "Elite", seats: 4, cargo: "405 L" }, description: "A gorgeous, low-slung all-electric performance sedan.", image: "https://i.insider.com/5f9afc5e69331a0011bc6197?width=700" },
+
+        // BMW
+        { id: "b1", name: "BMW i4 eDrive40", brand: "BMW", price: 7300000, type: "sedan", fuel: "electric", lifestyle: "commute", priority: "luxury", specs: { range: "494 km", acceleration: "4.7s", horsepower: "335 hp", safety: "Premium", seats: 5, cargo: "283 L" }, description: "Translates BMW's dynamic handling into an electric sedan.", image: "https://stimg2.cardekho.com/images/carNewsEditorImages/userimages/20220405_005432/28860/bmw0.jpg?impolicy=resize&imwidth=420" },
+        { id: "b2", name: "BMW M3 Competition", brand: "BMW", price: 14700000, type: "sedan", fuel: "gasoline", lifestyle: "speed", priority: "performance", specs: { range: "7 km/l", acceleration: "3.4s", horsepower: "503 hp", safety: "Premium", seats: 5, cargo: "368 L" }, description: "The quintessential high-performance luxury sports sedan.", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRakVd2uXS8kGi_OmMShtbgLDFbP6Jw7-whg&s" },
+        { id: "b3", name: "BMW X5 xDrive40i", brand: "BMW", price: 9800000, type: "suv", fuel: "gasoline", lifestyle: "family", priority: "luxury", specs: { range: "10 km/l", acceleration: "5.3s", horsepower: "375 hp", safety: "Top Safety Pick", seats: 5, cargo: "960 L" }, description: "A mid-size luxury SUV offering immense comfort and straight-line speed.", image: "https://cdn-s3.autocarindia.com/BMW/X5/_AAB6024.JPG?w=640" },
+
+        // AUDI
+        { id: "a1", name: "Audi e-tron GT", brand: "Audi", price: 17000000, type: "sedan", fuel: "electric", lifestyle: "eco", priority: "luxury", specs: { range: "400 km", acceleration: "3.9s", horsepower: "522 hp", safety: "5-Star", seats: 5, cargo: "260 L" }, description: "A breathtaking electric grand tourer merging majestic styling and speed.", image: "https://cdn-s3.autocarindia.com/BMW/X5/_AAB6024.JPG?w=640" },
+        { id: "a2", name: "Audi Q5", brand: "Audi", price: 6500000, type: "suv", fuel: "gasoline", lifestyle: "family", priority: "luxury", specs: { range: "11 km/l", acceleration: "6.8s", horsepower: "201 hp", safety: "Top Safety Pick+", seats: 5, cargo: "730 L" }, description: "A refined and whisper-quiet premium compact SUV.", image: "https://d2ivfcfbdvj3sm.cloudfront.net/qch3KXWkx3Q1p9sd/56860/stills_0640_png/MY2025/56860/56860_st0640_116.webp?c=172&p=164&m=1&o=png&s=itxedJzplNmspKOxQyf_qh" },
+        { id: "a3", name: "Audi RS3", brand: "Audi", price: 7500000, type: "sedan", fuel: "gasoline", lifestyle: "speed", priority: "performance", specs: { range: "8 km/l", acceleration: "3.6s", horsepower: "401 hp", safety: "5-Star", seats: 5, cargo: "235 L" }, description: "A small, aggressive sports sedan with a legendary 5-cylinder engine sound.", image: "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?q=80&w=800&auto=format&fit=crop" }
+      ];
+
+      // --- 2. INDIA STORE API DATA ---
+      const STORES_DATABASE = [
+        { id: "del", name: "Wheelwise Delhi NCR", address: "12 Auto Hub, Connaught Place, New Delhi 110001", deliveryDays: 3 },
+        { id: "mum", name: "Wheelwise Mumbai", address: "45 Marine Drive, Worli, Mumbai 400018", deliveryDays: 4 },
+        { id: "blr", name: "Wheelwise Bangalore", address: "108 Tech Park Rd, Koramangala, Bengaluru 560034", deliveryDays: 3 },
+        { id: "hyd", name: "Wheelwise Hyderabad", address: "Plot 42, Jubilee Hills, Hyderabad 500033", deliveryDays: 5 }
+      ];
+
+      // Formatting helper for INR
+      const formatINR = (price) => new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(price);
+
+      // --- 3. LOGIC STATE ---
+      let currentStep = 1;
+      const totalSteps = 5;
+      const answers = { budget: 6500000, type: "", lifestyle: "", fuel: "", priority: "" };
+      let matchedCars = [];
+
+      // --- 4. NAVIGATION ---
+      function showSection(name) {
+        ["home", "quiz", "results", "showroom"].forEach(s => document.getElementById(s + "-section").style.display = "none");
+        document.getElementById(name + "-section").style.display = "block";
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      document.querySelectorAll("nav a").forEach(link => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          document.querySelectorAll("nav a").forEach(l => l.classList.remove("active"));
+          link.classList.add("active");
+          showSection(link.dataset.target);
+        });
+      });
+
+      document.getElementById("logo-wrapper").addEventListener("click", () => showSection("home"));
+      document.getElementById("start-quiz-nav").addEventListener("click", () => document.getElementById("start-quiz-btn").click());
+
+      // --- 5. QUIZ LOGIC ---
+      document.getElementById("start-quiz-btn").addEventListener("click", () => {
+        currentStep = 1;
+        document.querySelectorAll(".option-card").forEach(c => c.classList.remove("selected"));
+        showStep(1);
+        showSection("quiz");
+      });
+
+      document.getElementById("budget-slider").addEventListener("input", (e) => {
+        answers.budget = parseInt(e.target.value);
+        document.getElementById("budget-value-text").textContent = formatINR(answers.budget);
+      });
+
+      document.querySelectorAll(".option-card").forEach(card => {
+        card.addEventListener("click", () => {
+          const stepName = card.getAttribute("data-step-name");
+          card.parentElement.querySelectorAll(".option-card").forEach(s => s.classList.remove("selected"));
+          card.classList.add("selected");
+          answers[stepName] = card.getAttribute("data-value");
+          
+          setTimeout(() => {
+            if (currentStep < totalSteps) {
+              currentStep++;
+              showStep(currentStep);
+            }
+          }, 300);
+        });
+      });
+
+      function showStep(step) {
+        document.querySelectorAll(".quiz-step").forEach(s => s.classList.remove("active"));
+        document.getElementById(`step-${step}`).classList.add("active");
+        document.getElementById("progress-bar").style.width = `${((step - 1) / totalSteps) * 100}%`;
+        document.getElementById("progress-text").textContent = `Step ${step} of ${totalSteps}`;
+        document.getElementById("prev-step-btn").style.display = step === 1 ? "none" : "block";
+        document.getElementById("next-step-btn").textContent = step === totalSteps ? "Calculate Matches" : "Next Step";
+      }
+
+      document.getElementById("prev-step-btn").addEventListener("click", () => {
+        if (currentStep > 1) { currentStep--; showStep(currentStep); }
+      });
+
+      document.getElementById("next-step-btn").addEventListener("click", () => {
+        if (currentStep > 1 && !document.getElementById(`step-${currentStep}`).querySelector(".selected")) {
+          alert("Please select an option to continue.");
+          return;
+        }
+        if (currentStep < totalSteps) { currentStep++; showStep(currentStep); } 
+        else { calculateMatches(); }
+      });
+
+      // --- 6. MATCHMAKER ENGINE ---
+      function calculateMatches() {
+        matchedCars = CARS_DATABASE.map(car => {
+          let score = 0;
+          if (car.price <= answers.budget) score += 35;
+          if (car.type === answers.type) score += 20;
+          if (car.lifestyle === answers.lifestyle) score += 20;
+          if (car.fuel === answers.fuel) score += 15;
+          if (car.priority === answers.priority) score += 10;
+          return { ...car, matchPercent: score };
+        }).sort((a, b) => b.matchPercent - a.matchPercent);
+
+        const grid = document.getElementById("results-grid");
+        grid.innerHTML = "";
+        
+        matchedCars.slice(0, 3).forEach(car => {
+          const card = document.createElement("div");
+          card.className = "glass-panel car-card";
+          card.innerHTML = `
+            <div class="match-score-badge">${car.matchPercent}% Match</div>
+            <div class="car-brand">${car.brand}</div>
+            <div class="car-name">${car.name}</div>
+            <div class="car-price-badge">${formatINR(car.price)}</div>
+            <div class="car-image-wrapper"><img src="${car.image}" alt="${car.name}" referrerpolicy="no-referrer" crossorigin="anonymous"></div>
+            <p class="car-description">${car.description}</p>
+            <button class="btn-card-primary view-spec" data-id="${car.id}">View Details & Order</button>
+          `;
+          grid.appendChild(card);
+        });
+
+        document.querySelectorAll("#results-grid .view-spec").forEach(b => b.addEventListener("click", (e) => openDetailModal(e.target.dataset.id)));
+        showSection("results");
+      }
+
+      document.getElementById("redo-quiz-btn").addEventListener("click", () => document.getElementById("start-quiz-btn").click());
+
+      // --- 7. MODAL & MULTI-STEP CHECKOUT API ---
+function openDetailModal(carId) {
+  const car = CARS_DATABASE.find(c => c.id === carId);
+  if (!car) return;
+  
+  const modalEl = document.createElement("div");
+  modalEl.className = "detail-modal open";
+  
+  const storeOptions = STORES_DATABASE.map(store => `<option value="${store.id}">${store.name} (${store.address.split(',')[1].trim()})</option>`).join('');
+
+  modalEl.innerHTML = `
+    <div class="detail-modal-box" style="overflow: hidden; position: relative;">
+      <button class="btn-secondary" id="close-x" style="position:absolute; top:20px; right:20px; border:none; z-index: 10;">✕</button>
+      
+      <div id="modal-step-1">
+        <div class="car-brand">${car.brand}</div>
+        <h3 class="detail-modal-title">${car.name}</h3>
+        <div class="car-price-badge">${formatINR(car.price)}</div>
+        
+        <div class="car-image-wrapper" style="height:220px;">
+          <img src="${car.image}" alt="${car.name}" referrerpolicy="no-referrer" crossorigin="anonymous">
+        </div>
+        
+        <div style="background:rgba(0,0,0,0.3); padding:15px; border-radius:12px; margin-bottom:20px; border:1px solid rgba(255,255,255,0.05);">
+          <div style="display:flex; justify-content:space-between; margin-bottom:8px;"><span>Engine</span><strong>${car.fuel.toUpperCase()}</strong></div>
+          <div style="display:flex; justify-content:space-between; margin-bottom:8px;"><span>0-100 km/h</span><strong>${car.specs.acceleration}</strong></div>
+          <div style="display:flex; justify-content:space-between;"><span>Economy</span><strong>${car.specs.range}</strong></div>
+        </div>
+
+        <div style="margin-bottom: 24px;">
+          <label style="display:block; font-size:12px; color:var(--text-muted); margin-bottom:8px; text-transform:uppercase; font-weight:700;">Select Delivery Hub in India</label>
+          <select id="location-select" class="filter-select" style="width:100%; border-color:rgba(0, 229, 255, 0.3);">
+            <option value="" disabled selected>-- Choose your nearest city --</option>
+            ${storeOptions}
+          </select>
+        </div>
+        
+        <button id="proceed-to-checkout-btn" class="btn-primary" style="width: 100%; justify-content:center;">Proceed to Order</button>
+      </div>
+
+      <div id="modal-step-2" style="display: none; animation: fadeIn 0.4s;">
+        <h3 class="detail-modal-title" style="margin-bottom: 20px;">Finalize Paperwork</h3>
+        <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 24px;">Please provide your details to expedite the showroom handover process for your <strong>${car.name}</strong>.</p>
+        
+        <div class="checkout-form-group">
+          <label for="buyer-name">Full Legal Name</label>
+          <input type="text" id="buyer-name" class="checkout-input" placeholder="e.g., Rahul Sharma" required>
+        </div>
+
+        <div class="checkout-form-group">
+          <label for="payment-method">Purchasing Method</label>
+          <select id="payment-method" class="checkout-input" required>
+            <option value="" disabled selected>-- Select Payment Type --</option>
+            <option value="Cash (Direct Transfer)">Cash / Direct Bank Transfer</option>
+            <option value="Bank Cheque">Bank Cheque</option>
+            <option value="Dealership Finance">Showroom Financing / EMI</option>
+          </select>
+        </div>
+
+        <div class="checkout-form-group">
+          <label for="pickup-time">Estimated Arrival Time</label>
+          <input type="time" id="pickup-time" class="checkout-input" required>
+        </div>
+
+        <div style="display:flex; gap:12px; margin-top: 30px;">
+          <button id="final-submit-btn" class="btn-primary" style="flex:2; justify-content:center;">Confirm & Reserve</button>
+          <button id="back-to-details-btn" class="btn-secondary" style="flex:1;">Back</button>
+        </div>
+      </div>
+
+    </div>
+  `;
+  document.body.appendChild(modalEl);
+  
+  // Element References
+  const step1 = modalEl.querySelector("#modal-step-1");
+  const step2 = modalEl.querySelector("#modal-step-2");
+  const closeMod = () => modalEl.remove();
+  
+  // Event Listeners for closing
+  modalEl.querySelector("#close-x").addEventListener("click", closeMod);
+  
+  // Proceed to Step 2
+  modalEl.querySelector("#proceed-to-checkout-btn").addEventListener("click", () => {
+    const selectedStoreId = modalEl.querySelector("#location-select").value;
+    if(!selectedStoreId) {
+      alert("Please select a delivery hub in India before proceeding.");
+      return;
+    }
+    // Switch views
+    step1.style.display = "none";
+    step2.style.display = "block";
+  });
+
+  // Back to Step 1
+  modalEl.querySelector("#back-to-details-btn").addEventListener("click", () => {
+    step2.style.display = "none";
+    step1.style.display = "block";
+  });
+  
+  // Final Form Submission & Validation
+  modalEl.querySelector("#final-submit-btn").addEventListener("click", () => {
+    const buyerName = modalEl.querySelector("#buyer-name").value.trim();
+    const paymentMethod = modalEl.querySelector("#payment-method").value;
+    const pickupTime = modalEl.querySelector("#pickup-time").value;
+    const selectedStoreId = modalEl.querySelector("#location-select").value;
+
+    // Validation
+    if (!buyerName || !paymentMethod || !pickupTime) {
+      alert("Please fill out your Name, Payment Method, and Arrival Time to complete the reservation.");
+      return;
+    }
+
+    // Process Order
+    const store = STORES_DATABASE.find(s => s.id === selectedStoreId);
+    const date = new Date(); 
+    date.setDate(date.getDate() + store.deliveryDays);
+    
+    // Format the time to 12-hour AM/PM
+    const timeString = new Date('1970-01-01T' + pickupTime + 'Z').toLocaleTimeString('en-US', {timeZone:'UTC',hour12:true,hour:'numeric',minute:'numeric'});
+
+    alert(
+      `✅ Reservation Confirmed, ${buyerName}!\n\n` +
+      `Vehicle: ${car.name}\n` +
+      `Total Price: ${formatINR(car.price)}\n` +
+      `Payment Method: ${paymentMethod}\n\n` +
+      `Pickup Location: ${store.name}\n` +
+      `Address: ${store.address}\n\n` +
+      `Paperwork scheduled for:\n📅 ${date.toLocaleDateString('en-IN', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })} at ⏰ ${timeString}\n\n` +
+      `Our executives will have your paperwork prepared in advance. See you soon!`
+    );
+    closeMod();
+  });
+}
+
+      // --- 8. SHOWROOM INITIALIZATION & FILTERING ---
+      const showroomGrid = document.getElementById("showroom-grid");
+      const brandFilter = document.getElementById("brand-filter");
+      
+      const brands = [...new Set(CARS_DATABASE.map(c => c.brand))].sort();
+      brands.forEach(b => brandFilter.innerHTML += `<option value="${b.toLowerCase()}">${b}</option>`);
+
+      function renderShowroom(data) {
+        showroomGrid.innerHTML = "";
+        data.forEach(car => {
+          const card = document.createElement("div");
+          card.className = "glass-panel car-card";
+          card.innerHTML = `
+            <div class="car-brand">${car.brand}</div>
+            <div class="car-name"><h4>${car.name}</h4></div>
+            <div class="car-price-badge">${formatINR(car.price)}</div>
+            <div class="car-image-wrapper"><img src="${car.image}" alt="${car.name}" referrerpolicy="no-referrer" crossorigin="anonymous"></div>
+            <button class="btn-card-primary view-spec" data-id="${car.id}" style="margin-top:auto;">View Details</button>
+          `;
+          showroomGrid.appendChild(card);
+        });
+        document.querySelectorAll("#showroom-grid .view-spec").forEach(b => b.addEventListener("click", (e) => openDetailModal(e.target.dataset.id)));
+      }
+
+      function applyFilters() {
+        const brand = document.getElementById("brand-filter").value;
+        const type = document.getElementById("type-filter").value;
+        const priceVal = document.getElementById("price-filter") ? document.getElementById("price-filter").value : "all";
+        
+        const filtered = CARS_DATABASE.filter(car => {
+          if (brand !== "all" && car.brand.toLowerCase() !== brand) return false;
+          if (type !== "all" && car.type !== type) return false;
+          
+          // INR Price filtering logic
+          if (priceVal !== "all") {
+            if (priceVal === "budget" && car.price >= 3000000) return false;
+            if (priceVal === "mid" && (car.price < 3000000 || car.price > 6000000)) return false;
+            if (priceVal === "premium" && (car.price < 6000000 || car.price > 10000000)) return false;
+            if (priceVal === "luxury" && car.price < 10000000) return false;
+          }
+
+          return true;
+        });
+        renderShowroom(filtered);
+      }
+
+      document.querySelectorAll(".filter-select").forEach(sel => sel.addEventListener("change", applyFilters));
+
+      // Initial Render
+      renderShowroom(CARS_DATABASE);
+    });
+  </script>
+</body>
+</html>
